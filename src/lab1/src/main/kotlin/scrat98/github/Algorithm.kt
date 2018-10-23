@@ -10,3 +10,9 @@ data class Section(
 )
 
 fun Section.isClosed(epsilon: Double): Boolean = x2 - x1 < epsilon
+
+data class Statistic(
+    val time: Long,
+    val stepNumber: Int,
+    val newSection: Section
+)

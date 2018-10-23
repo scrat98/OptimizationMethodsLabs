@@ -4,6 +4,7 @@ import mu.KLogging
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import javax.annotation.PostConstruct
+import kotlin.system.measureTimeMillis
 
 @SpringBootApplication
 class AlgorithmComparator(private val algorithms: Set<Algorithm>,
@@ -13,16 +14,27 @@ class AlgorithmComparator(private val algorithms: Set<Algorithm>,
 
   companion object : KLogging()
 
+  private val statistics = mutableMapOf<String, MutableList<Statistic>>()
+
   @PostConstruct
   override fun run() {
     logger.warn("Start comparing algorithms")
     algorithms.forEach {
-      logger.warn("Calculate ${it.javaClass} algorithm")
+      val algorithmName = it.javaClass.toString()
+      logger.warn("Calculate $algorithmName algorithm")
       var currentSection = initSection
+      var stepNumber = 0
       while (!currentSection.isClosed(epsilon)) {
-        currentSection = it.getNextSection(function, initSection)
+        stepNumber++
+        val time = measureTimeMillis {
+          currentSection = it.getNextSection(function, initSection)
+        }
+        val statistic = Statistic(time, stepNumber, currentSection)
+        statistics[algorithmName]?.add(statistic) ?: statistics.putIfAbsent(algorithmName,
+            mutableListOf(statistic))
       }
     }
+    logger.warn(statistics.toString())
   }
 }
 
