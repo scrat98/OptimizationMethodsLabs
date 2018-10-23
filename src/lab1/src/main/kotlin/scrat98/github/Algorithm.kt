@@ -1,7 +1,5 @@
 package scrat98.github
 
-import kotlin.math.abs
-
 interface Algorithm {
   fun getNextSection(function: (Double) -> Double, section: Section): Section
 }
