@@ -5,8 +5,12 @@ import scrat98.github.Algorithm
 import scrat98.github.Section
 
 @Component
-class GoldenSectionSearch : Algorithm {
+class GoldenSectionSearch : Algorithm() {
   override fun getNextSection(function: (Double) -> Double, section: Section): Section {
     return Section(0.0, 0.0)
+  }
+
+  override fun toString(): String {
+    return "GoldenSectionSearch"
   }
 }
