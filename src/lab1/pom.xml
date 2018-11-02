@@ -11,4 +11,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>lab1</artifactId>
+
+    <dependencies>
+        <!--Math-->
+        <dependency>
+            <groupId>net.objecthunter</groupId>
+            <artifactId>exp4j</artifactId>
+            <version>0.4.8</version>
+        </dependency>
+    </dependencies>
 </project>
