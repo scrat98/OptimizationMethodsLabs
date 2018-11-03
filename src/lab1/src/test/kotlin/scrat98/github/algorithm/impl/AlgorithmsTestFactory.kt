@@ -30,7 +30,7 @@ class AlgorithmsTestFactory {
       TestFunction({ x: Double -> sin(x) }, "sin(x)") to Section(-PI / 2, PI / 2),
       TestFunction({ x: Double -> cos(x) }, "cos(x)") to Section(0.0, PI),
       TestFunction({ x: Double -> (x - 2) * (x - 2) }, "(x-2)^2") to Section(-2.0, 20.0),
-      TestFunction({ x: Double -> (x - 15) * (x - 15) + 5 }, "(x-15)^2") to Section(2.0, 200.0),
+      TestFunction({ x: Double -> (x - 15) * (x - 15) + 5 }, "(x-15)^2 + 5") to Section(2.0, 200.0),
       TestFunction({ x: Double -> Math.pow((x + 5), 4.0) }, "(x+5)^4") to Section(-10.0, 15.0),
       TestFunction({ x: Double -> Math.exp(x) }, "exp(x)") to Section(0.0, 100.0),
       TestFunction({ x: Double -> x * x + 2 * x - 4 }, "x^2 + 2x - 4") to Section(-10.0, 20.0),
