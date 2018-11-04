@@ -6,12 +6,24 @@ import scrat98.github.Section
 import scrat98.github.center
 
 @Component
-class Dichotomy(private val epsilon: Double) : Algorithm() {
-  override fun getNextSection(function: (Double) -> Double, section: Section): Section {
-    val delta = epsilon.div(4)
-    val x1 = section.center() - delta
-    val x2 = section.center() + delta
-    return choseSection(function, section, x1, x2)
+class Dichotomy(function: (Double) -> Double,
+                section: Section,
+                epsilon: Double) : Algorithm(function, section, epsilon) {
+
+  private val delta = epsilon.div(4)
+
+  override fun calculateNewSectionImpl(): Section {
+    x1 = section.center() - delta
+    x2 = section.center() + delta
+    return chooseSection()
+  }
+
+  private fun chooseSection(): Section {
+    `fun(x1)` = function(x1)
+    `fun(x2)` = function(x2)
+    if (`fun(x1)` < `fun(x2)`) return Section(section.x1, x2)
+    if (`fun(x1)` > `fun(x2)`) return Section(x1, section.x2)
+    return Section(x1, x2)
   }
 
   override fun toString(): String {

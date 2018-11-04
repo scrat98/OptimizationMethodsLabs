@@ -7,10 +7,7 @@ import javax.annotation.PostConstruct
 import kotlin.system.measureNanoTime
 
 @SpringBootApplication
-class AlgorithmComparator(private val algorithms: Set<Algorithm>,
-                          private val initSection: Section,
-                          private val epsilon: Double,
-                          private val function: (Double) -> Double) : Runnable {
+class AlgorithmComparator(private val algorithms: Set<Algorithm>) : Runnable {
 
   companion object : KLogging()
 
@@ -19,18 +16,23 @@ class AlgorithmComparator(private val algorithms: Set<Algorithm>,
   @PostConstruct
   override fun run() {
     logger.warn("Start comparing algorithms")
-    algorithms.forEach { it ->
-      val algorithmName = it.javaClass.toString()
-      logger.warn("Calculate $algorithmName algorithm")
-      var currentSection = initSection
+    algorithms.forEach { algorithm ->
+      logger.warn("Calculate $algorithm algorithm")
       var stepNumber = 0
-      while (!currentSection.isClosed(epsilon)) {
+      while (!algorithm.isConverged()) {
         stepNumber++
         val time = measureNanoTime {
-          currentSection = it.getNextSection(function, currentSection)
+          algorithm.calculateNewSection()
         }
-        val statistic = Statistic(time, stepNumber, currentSection)
-        statistics.computeIfAbsent(algorithmName
+        val statistic = Statistic(
+            stepNumber = stepNumber,
+            initSection = algorithm.calculatedSection,
+            newSection = algorithm.section,
+            reduction = algorithm.calculatedSection.length() / algorithm.section.length(),
+            points = algorithm.points,
+            values = algorithm.values,
+            time = time)
+        statistics.computeIfAbsent(algorithm.toString()
         ) { mutableListOf() }.add(statistic)
       }
     }
