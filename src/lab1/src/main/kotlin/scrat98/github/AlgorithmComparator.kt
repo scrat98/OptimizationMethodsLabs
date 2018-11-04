@@ -71,7 +71,7 @@ class AlgorithmComparator(private val algorithms: Set<Algorithm>) : Runnable {
       val epsilon = statistics.first
       val time: Long = statistics.second.fold<Statistic, Long>(0) { acc, it -> acc + it.time }
       val steps = statistics.second.last().stepNumber
-      File("$algorithm.txt").printWriter().use { out ->
+      File("results/lab1/$algorithm.txt").also { it.parentFile.mkdirs() }.printWriter().use { out ->
         out.println("epsilon $epsilon steps $steps time $time ns")
         out.println(at.render())
       }
