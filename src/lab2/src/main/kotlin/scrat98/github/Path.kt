@@ -1,10 +1,10 @@
 package scrat98.github
 
-class Path(private val graph: Graph) {
+class Path(val graph: Graph) {
 
   private val verticesCount = graph.verticesCount
 
-  private val weightTable = IntArray(verticesCount, { Int.MAX_VALUE })
+  private val weightTable = IntArray(verticesCount, { Int.MAX_VALUE / 2 })
 
   private val path = IntArray(verticesCount, { -1 })
 

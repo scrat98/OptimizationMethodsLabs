@@ -1,22 +1,10 @@
 package scrat98.github
 
 import java.io.File
-import java.util.*
 
 class PathFinder {
-  fun findPath(fileName: String): Path {
-    val graphFile = File(ClassLoader.getSystemResource(fileName).file)
-    val scanner = Scanner(graphFile)
-
-    val verticesCount = scanner.nextInt()
-    val graph = Graph(verticesCount)
-    while (scanner.hasNextLine()) {
-      val from = scanner.nextInt() - 1
-      val to = scanner.nextInt() - 1
-      val weight = scanner.nextInt()
-      graph.add(from, to, weight)
-    }
-
+  fun findPath(graphFile: String): Path {
+    val graph = createGraphFromFile(graphFile)
     return findPath(graph)
   }
 
