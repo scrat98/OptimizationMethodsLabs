@@ -11,20 +11,5 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>lab1</artifactId>
-
-    <dependencies>
-        <!--Math-->
-        <dependency>
-            <groupId>net.objecthunter</groupId>
-            <artifactId>exp4j</artifactId>
-            <version>0.4.8</version>
-        </dependency>
-        <!--Text table-->
-        <dependency>
-            <groupId>de.vandermeer</groupId>
-            <artifactId>asciitable</artifactId>
-            <version>0.3.2</version>
-        </dependency>
-    </dependencies>
+    <artifactId>lab3</artifactId>
 </project>

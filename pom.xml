@@ -24,6 +24,8 @@
     <modules>
         <module>src/lab1</module>
         <module>src/lab2</module>
+        <module>src/lab3</module>
+        <module>src/lab4</module>
     </modules>
 
     <dependencies>
