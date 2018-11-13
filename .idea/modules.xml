@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/lab1/lab1-parent.iml" filepath="$PROJECT_DIR$/src/lab1/lab1-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/lab1/part1/lab1-part1.iml" filepath="$PROJECT_DIR$/src/lab1/part1/lab1-part1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/lab1/part2/lab1-part2.iml" filepath="$PROJECT_DIR$/src/lab1/part2/lab1-part2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/lab2/lab2.iml" filepath="$PROJECT_DIR$/src/lab2/lab2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/lab3/lab3.iml" filepath="$PROJECT_DIR$/src/lab3/lab3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/lab4/lab4.iml" filepath="$PROJECT_DIR$/src/lab4/lab4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/optimization-methods-labs.iml" filepath="$PROJECT_DIR$/.idea/optimization-methods-labs.iml" />
+    </modules>
+  </component>
+</project>

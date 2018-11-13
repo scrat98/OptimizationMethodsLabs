@@ -2,16 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lab1" />
+        <module name="lab1-part1" />
+        <module name="lab1-part2" />
         <module name="lab2" />
         <module name="lab3" />
         <module name="lab4" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lab1-parent" target="1.8" />
+      <module name="lab1-part1" target="1.8" />
+      <module name="lab1-part2" target="1.8" />
+      <module name="lab2" target="1.8" />
+      <module name="lab3" target="1.8" />
+      <module name="lab4" target="1.8" />
+      <module name="optimization-methods-labs" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
