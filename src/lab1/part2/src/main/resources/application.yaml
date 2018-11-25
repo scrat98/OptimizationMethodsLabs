@@ -1,0 +1,5 @@
+function: (x2 - x1)^2 + 100*(1 - x1)^2
+gradX1: 202*x1-2*x2-200
+gradX2: -2*x1+2*x2
+epsilon: 0.01
+maxIterations: 10000
